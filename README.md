@@ -1,23 +1,27 @@
 
 # FMCG_PROJECT
 
+
 🚀 FMCG data pipeline — clean, testable, and easy to extend
 
-![Pipeline screenshot](dashboards/screenshots/pipeline_health.png)
+![Hero](diagrams/hero.svg)
 
-TL;DR: A compact ETL + KPI project that ingests raw sales data, applies business transformations, and produces consumer-ready KPI tables and CSVs for dashboards and downstream analytics.
+TL;DR: A compact ETL + KPI studio that ingests raw sales data, applies business transformations, and produces consumer-ready KPI tables and CSVs for dashboards and downstream analytics.
 
-Badges: [![Python](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/) [![License](https://img.shields.io/badge/license-TBD-lightgrey)](LICENSE)
+Badges
+- [![Python](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
+- [![Docs](https://img.shields.io/badge/docs-ready-brightgreen)](docs)
+- [![Screenshots](https://img.shields.io/badge/gallery-5%20images-purple)](dashboards/screenshots)
 
 What you'll find here
-- A clear Bronze → Silver → Gold pipeline layout in `src/`.
-- Ready-to-use KPI scripts that output CSVs in `outputs/` for dashboards and reporting.
-- Example screenshots in the `dashboards/screenshots/` folder to preview visual outputs.
+- A clean Bronze → Silver → Gold pipeline layout in `src/`.
+- KPI scripts that write consumer-ready CSVs to `outputs/`.
+- A small gallery showing sample dashboards and KPI visualizations.
 
 Why use this repo
-- Focused: each script performs a single, well-scoped responsibility.
-- Extendable: add new ingests, transforms, or KPIs without touching other stages.
-- Portable: runs locally; easily orchestrated by Airflow/Prefect/ADF in cloud environments.
+- Focused: single-responsibility scripts for easy testing.
+- Composable: drop-in transforms and KPIs; swap storage and orchestration layers.
+- Portable: runs locally or in any cloud orchestration environment.
 
 --
 
@@ -34,6 +38,7 @@ Data outputs (examples)
 - [outputs/sales_summary.csv](outputs/sales_summary.csv) — aggregated sales snapshot.
 - [outputs/sku_performance.csv](outputs/sku_performance.csv) — SKU-level performance indicators.
 
+
 Example (preview of `outputs/sales_summary.csv`)
 
 | date       | total_orders | total_sales | avg_order_value |
@@ -42,12 +47,21 @@ Example (preview of `outputs/sales_summary.csv`)
 | 2026-05-02 |           139 |   62,105.50 |          446.80 |
 | 2026-05-03 |           110 |   48,900.00 |          444.55 |
 
+
 Screenshots / quick gallery
 
-- [Distributor performance](dashboards/screenshots/distributor_perf.png)
-- [Sales trend](dashboards/screenshots/sales_trend.png)
-- [SKU performance](dashboards/screenshots/sku_performance.png)
-- [Stock aging](dashboards/screenshots/stock_aging.png)
+<table>
+	<tr>
+		<td><img src="dashboards/screenshots/distributor_perf.png" alt="Distributor" width="420"></td>
+		<td><img src="dashboards/screenshots/sales_trend.png" alt="Sales trend" width="420"></td>
+	</tr>
+	<tr>
+		<td><img src="dashboards/screenshots/sku_performance.png" alt="SKU perf" width="420"></td>
+		<td><img src="dashboards/screenshots/stock_aging.png" alt="Stock aging" width="420"></td>
+	</tr>
+</table>
+
+Tip: The screenshots are examples — replace them with your BI exports for live dashboards.
 
 
 Architecture diagram (pipeline)
