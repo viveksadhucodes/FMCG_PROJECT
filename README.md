@@ -1,27 +1,29 @@
 
 # FMCG_PROJECT
 
-A production-ready data pipeline and KPI engine for fast-moving consumer goods (FMCG) analytics.
+🚀 FMCG data pipeline — clean, testable, and easy to extend
 
-This repository implements an organized Bronze → Silver → Gold data architecture for ingesting raw sources, applying business-grade transformations, and producing KPI-ready datasets and reports for distributors, SKUs, and sales performance.
+![Pipeline screenshot](dashboards/screenshots/pipeline_health.png)
 
-Why this project is special
-- Purpose-built structure that cleanly separates ingestion, transformation, and KPI derivation.
-- Designed to be runnable on a developer laptop or productionized on cloud data platforms.
-- Clear contract between stages: reproducible outputs in `outputs/` with traceable code in `src/`.
+TL;DR: A compact ETL + KPI project that ingests raw sales data, applies business transformations, and produces consumer-ready KPI tables and CSVs for dashboards and downstream analytics.
 
-Contents
-- **Overview:** What the project does and its value proposition.
-- **Architecture:** Visual and textual descriptions of data flow and components.
-- **File Map:** Key scripts and docs with quick links.
-- **Getting Started:** Minimal steps to run locally.
-- **Development & Contribution:** How to extend the project.
+Badges: [![Python](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/) [![License](https://img.shields.io/badge/license-TBD-lightgrey)](LICENSE)
+
+What you'll find here
+- A clear Bronze → Silver → Gold pipeline layout in `src/`.
+- Ready-to-use KPI scripts that output CSVs in `outputs/` for dashboards and reporting.
+- Example screenshots in the `dashboards/screenshots/` folder to preview visual outputs.
+
+Why use this repo
+- Focused: each script performs a single, well-scoped responsibility.
+- Extendable: add new ingests, transforms, or KPIs without touching other stages.
+- Portable: runs locally; easily orchestrated by Airflow/Prefect/ADF in cloud environments.
 
 --
 
 **High-level overview**
 
-FMCG_PROJECT is an end-to-end ETL and KPI generation repository aimed at turning transactional and master-data inputs (orders, payments, products, customers, order items) into clean analytics artifacts and KPI summaries for business consumers.
+FMCG_PROJECT is an end-to-end ETL and KPI generation repository that turns transactional and master-data inputs (orders, payments, products, customers, order items) into clean analytics artifacts and KPI summaries for business consumers.
 
 Core pipeline stages
 - Bronze (raw ingestion): `src/bronze/` — scripts that fetch or read raw input files and land them into a raw zone.
@@ -31,6 +33,22 @@ Core pipeline stages
 Data outputs (examples)
 - [outputs/sales_summary.csv](outputs/sales_summary.csv) — aggregated sales snapshot.
 - [outputs/sku_performance.csv](outputs/sku_performance.csv) — SKU-level performance indicators.
+
+Example (preview of `outputs/sales_summary.csv`)
+
+| date       | total_orders | total_sales | avg_order_value |
+|------------|--------------:|-----------:|----------------:|
+| 2026-05-01 |           124 |   54,321.00 |          438.07 |
+| 2026-05-02 |           139 |   62,105.50 |          446.80 |
+| 2026-05-03 |           110 |   48,900.00 |          444.55 |
+
+Screenshots / quick gallery
+
+- [Distributor performance](dashboards/screenshots/distributor_perf.png)
+- [Sales trend](dashboards/screenshots/sales_trend.png)
+- [SKU performance](dashboards/screenshots/sku_performance.png)
+- [Stock aging](dashboards/screenshots/stock_aging.png)
+
 
 Architecture diagram (pipeline)
 
